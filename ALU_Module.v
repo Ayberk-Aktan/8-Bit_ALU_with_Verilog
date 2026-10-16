@@ -5,7 +5,7 @@ module mux_element #(parameter N = 8,parameter M = 3)(
 			input wire[N-1:0] Adder_Result, 
 			input wire[N-1:0] And_Result, 
 			input wire[N-1:0] Or_Result, 
-			input wire[N-1:0] Nand_Result, 
+			input wire[N-1:0] Not_Result, 
 			input wire[N-1:0] XOR_Result, 
 			input wire[N-1:0] Substractor_Result, 
 			input wire[N-1:0] Left_Shiftter, 
@@ -21,7 +21,7 @@ module mux_element #(parameter N = 8,parameter M = 3)(
 			3'b000 : Output = Adder_Result; 
 			3'b001 : Output = And_Result; 
 			3'b010 : Output = Or_Result; 
-			3'b011 : Output = Nand_Result; 
+			3'b011 : Output = Not_Result; 
 			3'b100 : Output = XOR_Result; 
 			3'b101 : Output = Substractor_Result; 
 			3'b110 : Output = Left_Shiftter; 
@@ -37,13 +37,13 @@ module logical_unit #(parameter N=8)(
 		
 		output wire[N-1:0] And_Output, 
 		output wire[N-1:0] Or_Output, 
-		output wire[N-1:0] Nand_Output, 
+		output wire[N-1:0] Not_Output, 
 		output wire[N-1:0] XOR_Output
 	);  
 	
 	assign And_Output = Input_A & Input_B; 
 	assign Or_Output = Input_A | Input_B; 
-	assign Nand_Output = ~(Input_A & Input_B); 
+	assign Not_Output = ~(Input_A); 
 	assign XOR_Output = Input_A ^ Input_B;
 endmodule 
 
@@ -131,11 +131,20 @@ module main_full_subs #(parameter N = 8)(
 endmodule
 
 //Shifter Unit 
-module ALU_Module #(parameter N = 8)(
+module shifter_unit #(parameter N = 8)(
 		input wire[N-1:0] Input_A,
 		output wire[N-1:0] Left_Shift_A, Right_Shift_A
 	);  
 	
 	assign Left_Shift_A = Input_A << 1; 
 	assign Right_Shift_A = Input_A >> 1;
+endmodule 
+
+module ALU_Module #(parameter N = 8,parameter M = 3)(
+		input wire[N-1:0] Main_Input_A, 
+		input wire[N-1:0] Main_Input_B, 
+		
+		output wire[M-1:0] Main_Opcode, 
+		output wire[N-1:0] Main Result
+	);  
 endmodule
