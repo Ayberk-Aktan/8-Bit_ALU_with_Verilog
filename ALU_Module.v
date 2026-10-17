@@ -16,6 +16,7 @@ module mux_element #(parameter N = 8,parameter M = 3)(
 			output reg[N-1:0] Output
 	);  
 	
+	//Opcode Commands
 	localparam ADD = 3'b000; 
 	localparam AND = 3'b001; 
 	localparam OR = 3'b010; 
