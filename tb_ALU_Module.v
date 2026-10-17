@@ -30,6 +30,8 @@ module tb_ALU_Module;
 		.Main_Bout(Main_Bout)
 	);
 	
+	integer i; //iteration variable 
+	
 	// Main Testbenches 
 	initial begin 
 		//İnitial Values 
@@ -39,15 +41,28 @@ module tb_ALU_Module;
       Main_Cin     = 1'b0;
       Main_Bin     = 1'b0; 
 		
-		//Automatic Random Test
-		repeat (20) begin
-            Main_Input_A = $urandom_range(0, 255);
-            Main_Input_B = $urandom_range(0, 255);
-            Main_Opcode  = $urandom_range(0, 7);
-            Main_Cin     = $urandom_range(0, 1);
-            Main_Bin     = $urandom_range(0, 1);
-				#10;
-        end
+		//Testing all opcodes sequentially. 
+		for(i = 0; i<8; i = i + 1) begin
+			Main_Opcode = i[2:0]; 
+			Main_Input_A = $urandom_range(0,255); 
+			Main_Input_B = $urandom_range(0,255); 
+			
+			//Checking the Carry and Borrow status according to the opcode.
+			if(Main_Opcode == 3'b101) begin 
+				Main_Bin = $urandom_range(0,1); 
+			end 
+			else begin 
+				Main_Bin = 1'b0; 
+			end
+			
+			if(Main_Opcode == 3'b000) begin 
+					Main_Cin = $urandom_range(0,1);  
+			end 
+			else begin 
+					Main_Cin = 1'b0;
+			end
+			#1;
+		end
 	end 
 	
 	//Write Values Display 
