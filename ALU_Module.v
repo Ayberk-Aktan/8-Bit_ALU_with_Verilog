@@ -140,6 +140,7 @@ module shifter_unit #(parameter N = 8)(
 	assign Right_Shift_A = Input_A >> 1;
 endmodule 
 
+// Main ALU Module
 module ALU_Module #(parameter N = 8,parameter M = 3)(
 		input wire[N-1:0] Main_Input_A, 
 		input wire[N-1:0] Main_Input_B, 
