@@ -24,7 +24,7 @@ Bu proje, Verilog HDL kullanılarak tasarlanmış ve doğrulanmış modüler bir
 
 ## 📐 Mimari ve Blok Diyagramları
 
-Ana modül olan `ALU_Module.v`, birbirinden bağımsız kapı seviyesindeki alt blokları (tam toplayıcılar, çıkarıcılar, çoklayıcılar ve mantık kapıları) birleştirir.
+Ana modül olan `ALU_Module.v`, birbirinden bağımsız alt blokları (tam toplayıcılar, çıkarıcılar, çoklayıcılar ve mantık kapıları) birleştirir.
 
 ### Sistem Blok Diyagramı
 ![Blok Diyagramı](assets/8Bit_ALU_Block_Diagram.png) 
