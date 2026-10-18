@@ -15,12 +15,12 @@ Bu proje, Verilog HDL kullanılarak tamamen **kapı seviyesinde (gate-level)** t
   * `110`: Artırma (`A + 1`)
   * `111`: Azaltma (`A - 1`)
 * **Otomatik Doğrulamalı Testbench**: Kendi içinde barındırdığı "Golden Model" mimarisi sayesinde rastgele girdileri test eder ve sonuçları anlık olarak konsola raporlar.
-* **Tam Test Kapsamı**: Çok sayıda rastgele test vektörü ile simüle edilmiş ve 0 hata ile doğrulanmıştır.
+* **Tam Test Kapsamı**: Çok sayıda rastgele test vektörü ile simüle edilmiş ve sıfır hata ile doğrulanmıştır.
 
 ## 🧰 Kullanılan Teknolojiler ve Araçlar
 
 * **Donanım Tanımlama Dili**: Verilog HDL
-* **Simülasyon ve EDA Araçları**: Questa Sim / ModelSim, Intel Quartus Prime
+* **Simülasyon ve EDA Araçları**: Intel Quartus Prime, Questa Sim
 
 ## 📐 Mimari ve Blok Diyagramları
 
@@ -41,14 +41,6 @@ Doğrulama süreci, Questa Sim / ModelSim ortamında yazılan özel bir Verilog 
 
 ### Dalga Formu (Simülasyon Çıktısı)
 ![Dalga Formu](assets/8Bit_ALU_Testbench_Waveform.png)
-
-### Konsol Test Sonucu Örneği:
-```text
-/-----------TEST SONUCLARI---------/
-Toplam Test: 1000
-Basarili Test: 1000
-Basarisiz Test: 0
-```
 
 ## 🚀 Projeyi Çalıştırma
 
