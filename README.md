@@ -28,6 +28,7 @@ Ana modül olan `ALU_Module.v`, birbirinden bağımsız kapı seviyesindeki alt 
 
 ### Sistem Blok Diyagramı
 ![Blok Diyagramı](assets/8Bit_ALU_Block_Diagram.png) 
+<br>
 <i align="center">Resim 1:Sistem Blok Diyagramı</i> 
 
 ### Quartus RTL Şeması
@@ -49,8 +50,8 @@ Doğrulama süreci, Questa Sim / ModelSim ortamında yazılan özel bir Verilog 
 
 1. Repoyu bilgisayarınıza klonlayın:
    ```bash
-   git clone https://github.com/Ayberk-Aktan/ALU_Module.git
-   cd ALU_Module
+   git clone https://github.com/Ayberk-Aktan/8-Bit_ALU_with_Verilog.git
+   cd 8-Bit_ALU_Verilog
    ```
 
 2. **Questa Sim / ModelSim** veya **Intel Quartus Prime** uygulamasını açın.
