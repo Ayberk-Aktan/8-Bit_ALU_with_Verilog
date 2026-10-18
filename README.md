@@ -1,10 +1,10 @@
-## 8-Bit Kapı Seviyesi (Gate-Level) Verilog ALU Mimarisi
+## 8-Bit ALU with Verilog HDL
 
 Bu proje, Verilog HDL kullanılarak tasarlanmış ve doğrulanmış modüler bir 8-Bit Aritmetik Mantık Birimidir (ALU). ALU'nun mantığını anlamak ve kombinezonal devrelerle pratik kazanmak için geliştirilmiştir.
 
 ## 📌 Özellikler
 
-* **RTL Tasarımı**: Hem davranışsal modelleme (örn. MUX Modülünde) hem de yapısal modelleme (toplayıcı, çıkarıcı, arttırma ve azaltma) kullanılmıştır.
+* **RTL Tasarımı**: Hem davranışsal modelleme (örn. MUX modülünde) hem de yapısal modelleme (toplayıcı, çıkarıcı, arttırma ve azaltma) kullanılmıştır.
 * **8 Farklı İşlem (Opcode) Desteği**:
   * `000`: Eldeli Toplama (`ADD` + `Cin`)
   * `001`: Mantıksal VE (`AND`)
