@@ -16,7 +16,16 @@ module tb_ALU_Module;
 	//Output Signals 
 	wire[N-1:0] Main_Result; 
 	wire Main_Cout; 
-	wire Main_Bout; 
+	wire Main_Bout;  
+	
+	//Expected Values 
+	reg[N:0] expected; 
+	
+	//Test Counter 
+	integer success= 0; 
+	integer failed = 0; 
+	
+	integer i; //iteration variable 
 	
 	//Module Connection 
 	ALU_Module #(.N(N), .M(M)) uut(
@@ -30,8 +39,6 @@ module tb_ALU_Module;
 		.Main_Bout(Main_Bout)
 	);
 	
-	integer i; //iteration variable 
-	
 	// Main Testbenches 
 	initial begin 
 		//İnitial Values 
@@ -41,9 +48,10 @@ module tb_ALU_Module;
       Main_Cin     = 1'b0;
       Main_Bin     = 1'b0; 
 		
+		
 		//Testing all opcodes sequentially. 
-		for(i = 0; i<8; i = i + 1) begin
-			Main_Opcode = i[2:0]; 
+		for(i = 0; i<50; i = i + 1) begin
+			Main_Opcode = i[2:0];
 			Main_Input_A = $urandom_range(0,255); 
 			Main_Input_B = $urandom_range(0,255); 
 			
@@ -61,8 +69,35 @@ module tb_ALU_Module;
 			else begin 
 					Main_Cin = 1'b0;
 			end
-			#1;
-		end
+			#1; 
+			
+			//Calculating Expected Values 
+			case(Main_Opcode)
+				3'b000 : expected =  {1'b0,Main_Input_A} + {1'b0,Main_Input_B} + Main_Cin; 
+				3'b001 : expected = Main_Input_A & Main_Input_B; 
+				3'b010 : expected = Main_Input_A | Main_Input_B; 
+				3'b011 : expected = ~(Main_Input_A); 
+				3'b100 : expected = Main_Input_A ^ Main_Input_B; 
+				3'b101 : expected = {1'b0,Main_Input_A} - {1'b0,Main_Input_B} - Main_Bin; 
+				3'b110 : expected = Main_Input_A + 1; 
+				3'b111 : expected = Main_Input_A - 1; 
+				default : expected = 8'd0;
+			endcase 
+			
+			//Examination of the Expected Situation versus the Calculated Situation.
+			if(expected[N-1:0] == Main_Result) begin
+				success = success + 1; 
+			end 
+			else begin 
+				failed = failed + 1;
+			end 
+		end 
+		
+		//Write Console Test Results.
+		$display("/-----------TEST SONUCLARI---------/"); 
+		$display("Toplam Test: %d",success + failed); 
+		$display("Basarili Test: %d",success); 
+		$display("Basarisiz Test: %d\n",failed);
 	end 
 	
 	//Write Values Display 
