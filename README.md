@@ -37,7 +37,7 @@ Ana modül olan `ALU_Module.v`, birbirinden bağımsız kapı seviyesindeki alt 
 
 ## 🛠️ Simülasyon ve Doğrulama (Waveform)
 
-Doğrulama süreci, Questa Sim / ModelSim ortamında yazılan özel bir Verilog testbench (`tb_ALU_Module.v`) ile gerçekleştirilmiştir.
+Doğrulama süreci, Questa Sim ortamında yazılan özel bir Verilog testbench (`tb_ALU_Module.v`) ile gerçekleştirilmiştir.
 
 * **Rastgele Test Üretimi**: Sinyal girdileri `$urandom_range` fonksiyonu ile dinamik olarak üretilir.
 * **Delta-Cycle Senkronizasyonu**: Zamanlama hassasiyeti sayesinde yarış durumları (race condition) ve sinyal kaymaları engellenmiştir.
@@ -54,7 +54,7 @@ Doğrulama süreci, Questa Sim / ModelSim ortamında yazılan özel bir Verilog 
    cd 8-Bit_ALU_Verilog
    ```
 
-2. **Questa Sim / ModelSim** veya **Intel Quartus Prime** uygulamasını açın.
+2. **Questa Sim** veya **Intel Quartus Prime** uygulamasını açın.
 
 3. Tasarımı ve testbench dosyasını derleyin:
    ```bash
