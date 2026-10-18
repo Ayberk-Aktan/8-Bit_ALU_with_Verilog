@@ -36,6 +36,7 @@ module mux_element #(parameter N = 8,parameter M = 3)(
 			SUB : Output = Substractor_Result; 
 			INC : Output = Increment; 
 			DEC : Output = Decrement;
+			default : Output = {N{1'b0}}; // Default status
 		endcase
 	end
 endmodule
