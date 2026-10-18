@@ -6,5 +6,5 @@
 *.bak
 *.sft
 *.qdf
-*.txt 
-*.rpf
+.txt 
+.rpt
