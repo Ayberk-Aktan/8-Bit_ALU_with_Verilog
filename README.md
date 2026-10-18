@@ -28,11 +28,11 @@ Ana modül olan `ALU_Module.v`, birbirinden bağımsız kapı seviyesindeki alt 
 
 ### Sistem Blok Diyagramı
 ![Blok Diyagramı](assets/8Bit_ALU_Block_Diagram.png) 
-<i>Resim 1:Sistem Blok Diyagramı</i> 
+<i align="center">Resim 1:Sistem Blok Diyagramı</i> 
 
 ### Quartus RTL Şeması
 ![RTL Şeması](assets/8Bit_ALU_RTL_Viewer.png)
-<i>Resim 2:Sistem RTL Şeması</i> 
+<i align="center">Resim 2:Sistem RTL Şeması</i> 
 
 ## 🛠️ Simülasyon ve Doğrulama (Waveform)
 
@@ -43,7 +43,7 @@ Doğrulama süreci, Questa Sim / ModelSim ortamında yazılan özel bir Verilog 
 
 ### Dalga Formu (Simülasyon Çıktısı)
 ![Dalga Formu](assets/8Bit_ALU_Testbench_Waveform.png)
-<i>Resim 3:Dalga Formu</i>
+<i align="center">Resim 3:Dalga Formu</i>
 
 ## 🚀 Projeyi Çalıştırma
 
