@@ -68,8 +68,7 @@ module tb_ALU_Module;
 			end 
 			else begin 
 					Main_Cin = 1'b0;
-			end
-			#1; 
+			end 
 			
 			//Calculating Expected Values 
 			case(Main_Opcode)
@@ -82,7 +81,9 @@ module tb_ALU_Module;
 				3'b110 : expected = Main_Input_A + 1; 
 				3'b111 : expected = Main_Input_A - 1; 
 				default : expected = 8'd0;
-			endcase 
+			endcase  
+			
+			#10;
 			
 			//Examination of the Expected Situation versus the Calculated Situation.
 			if(expected[N-1:0] == Main_Result) begin
@@ -90,6 +91,9 @@ module tb_ALU_Module;
 			end 
 			else begin 
 				failed = failed + 1;
+				$display("FAIL op=%b A=%0d B=%0d Cin=%b Bin=%b | Result=%0d exp=%0d Cout=%b Bout=%b",
+             Main_Opcode, Main_Input_A, Main_Input_B, Main_Cin, Main_Bin,
+             Main_Result, expected[N-1:0], Main_Cout, Main_Bout);
 			end 
 		end 
 		
